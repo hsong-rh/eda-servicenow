@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_1070098_my_eda_0_eda_configuration.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<g:evaluate var="jvar_check_incident"> 
+   var check_incident = gs.getProperty('x_1070098_my_eda_0.check_incident'); 
+   check_incident; 
+</g:evaluate>
+<g:evaluate var="jvar_check_problem"> 
+   var check_problem = gs.getProperty('x_1070098_my_eda_0.check_problem'); 
+   check_problem; 
+</g:evaluate>
+<g:evaluate var="jvar_check_catalog"> 
+   var check_catalog = gs.getProperty('x_1070098_my_eda_0.check_catalog'); 
+   check_catalog; 
+</g:evaluate>
+<g:evaluate var="jvar_trigger_when"> 
+   var trigger_when = gs.getProperty('x_1070098_my_eda_0.trigger_when'); 
+   trigger_when; 
+</g:evaluate>
+<style>	
+legend {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 1.5em;
+padding: 0.5em;
+font-weight: bold;
+}
+label {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 1.2em;
+padding: 0.5em;
+font-weight: bold;
+}
+fieldset {
+border: none;
+padding: 0;
+width: 80%
+}
+input {
+padding: 0.5em;
+}
+</style>
+
+<h1> Event Driven Ansible Configurations</h1>
+
+<body>
+
+<g:ui_form>
+<fieldset>
+<legend>Which service you want to monitor? </legend>
+<label><g:ui_checkbox name="check_incident" value="${jvar_check_incident}"/>Incident</label>
+<label><g:ui_checkbox name="check_problem" value="${jvar_check_problem}"/>Problem</label>
+<label><g:ui_checkbox name="check_catalog" value="${jvar_check_catalog}"/>Catalog</label>
+</fieldset>
+
+<fieldset>
+<legend>When you want to monitor</legend>
+<j:choose> 
+<j:when test="${jvar_trigger_when.equals('approved')}"> 
+<label><input name="trigger_when" value="approved" type="radio" checked=""/>Approved</label>
+<label><input name="trigger_when" value="created" type="radio"/>Created</label>
+</j:when> 
+<j:when test="${jvar_trigger_when.equals('created')}"> 
+<label><input name="trigger_when" value="approved" type="radio" />Approved</label>
+<label><input name="trigger_when" value="created" type="radio" checked=""/>Created</label>
+</j:when> 
+<j:otherwise> 
+<label><input name="trigger_when" value="approved" type="radio" />Approved</label>
+<label><input name="trigger_when" value="created" type="radio" />Created</label>
+</j:otherwise> 
+</j:choose>
+</fieldset>
+<fieldset>
+<p>
+<div id="catalog_list" style="display:none">Catalogs</div>
+</p>
+<p>
+<div id="category_list" style="display:none">Categories</div>	
+</p>
+<p>
+<div id="category_list" style="display:none">Categories</div>	
+</p>
+<label>Click OK to save the configuration.</label>
+<br></br>
+<g:dialog_buttons_ok_cancel ok="return true"/>
+<input type="hidden" name="application_sys_id" value="499836460a0a0b1700003e7ad950b5da"/>
+</fieldset>
+</g:ui_form>
+</body>
+</j:jelly>]]></html>
+        <name>eda_configuration</name>
+        <processing_script><![CDATA[//set the value of the check_incident system property 
+gs.setProperty("x_1070098_my_eda_0.check_incident", check_incident); 
+ 
+//set the value of the check_problem sys property 
+gs.setProperty("x_1070098_my_eda_0.check_problem", check_problem); 
+ 
+//set the value of the check_catalog sys property 
+gs.setProperty("x_1070098_my_eda_0.check_catalog", check_catalog); 
+
+//set the value of the trigger_when sys property 
+gs.setProperty("x_1070098_my_eda_0.trigger_when", trigger_when);]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-23 15:39:25</sys_created_on>
+        <sys_id>b032022a9767611049b0b9dfe153affe</sys_id>
+        <sys_mod_count>69</sys_mod_count>
+        <sys_name>eda_configuration</sys_name>
+        <sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope>
+        <sys_update_name>sys_ui_page_b032022a9767611049b0b9dfe153affe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-23 19:10:22</sys_updated_on>
+    </sys_ui_page>
+</record_update>
