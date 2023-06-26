@@ -76,8 +76,21 @@ padding: 0.5em;
 </j:choose>
 </fieldset>
 <fieldset>
+
+<!--
+<j:if test="${jvar_check_catalog}">
 <p>
-<div id="catalog_list" style="display:none">Catalogs</div>
+<div id="catalog_list" style="display:block"><legend>Catalogs</legend>
+<g:evaluate var="jvar_gr" object="true"> 
+  var gr = new GlideRecord("sc_catalog"); 
+  gr.addQuery("active", true); 
+  gr.query(); 
+  gr; 
+</g:evaluate>
+<j:while test="${jvar_gr.next()}">
+  <label><g:ui_checkbox value="${jvar_gr.getValue('sys_id')}"/>catalog:${jvar_gr.getValue('title')}</label>
+</j:while>
+</div>
 </p>
 <p>
 <div id="category_list" style="display:none">Categories</div>	
@@ -85,10 +98,12 @@ padding: 0.5em;
 <p>
 <div id="category_list" style="display:none">Categories</div>	
 </p>
+</j:if>
+-->
 <label>Click OK to save the configuration.</label>
 <br></br>
 <g:dialog_buttons_ok_cancel ok="return true"/>
-<input type="hidden" name="application_sys_id" value="499836460a0a0b1700003e7ad950b5da"/>
+<input type="hidden" name="application_sys_id" value="cb4182e69767611049b0b9dfe153af15"/>
 </fieldset>
 </g:ui_form>
 </body>
@@ -109,13 +124,13 @@ gs.setProperty("x_1070098_my_eda_0.trigger_when", trigger_when);]]></processing_
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-23 15:39:25</sys_created_on>
         <sys_id>b032022a9767611049b0b9dfe153affe</sys_id>
-        <sys_mod_count>69</sys_mod_count>
+        <sys_mod_count>88</sys_mod_count>
         <sys_name>eda_configuration</sys_name>
         <sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package>
         <sys_policy/>
         <sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope>
         <sys_update_name>sys_ui_page_b032022a9767611049b0b9dfe153affe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-23 19:10:22</sys_updated_on>
+        <sys_updated_on>2023-06-26 13:43:11</sys_updated_on>
     </sys_ui_page>
 </record_update>
