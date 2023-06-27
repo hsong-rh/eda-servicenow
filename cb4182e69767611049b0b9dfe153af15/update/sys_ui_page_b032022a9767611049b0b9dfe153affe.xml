@@ -19,9 +19,17 @@
    var check_catalog = gs.getProperty('x_1070098_my_eda_0.check_catalog'); 
    check_catalog; 
 </g:evaluate>
-<g:evaluate var="jvar_trigger_when"> 
-   var trigger_when = gs.getProperty('x_1070098_my_eda_0.trigger_when'); 
-   trigger_when; 
+<g:evaluate var="jvar_incident_when"> 
+   var incident_when = gs.getProperty('x_1070098_my_eda_0.incident_when'); 
+   incident_when; 
+</g:evaluate>
+<g:evaluate var="jvar_problem_when"> 
+   var problem_when = gs.getProperty('x_1070098_my_eda_0.problem_when'); 
+   problem_when; 
+</g:evaluate>
+<g:evaluate var="jvar_catalog_when"> 
+   var catalog_when = gs.getProperty('x_1070098_my_eda_0.catalog_when'); 
+   catalog_when; 
 </g:evaluate>
 <style>	
 legend {
@@ -32,7 +40,7 @@ font-weight: bold;
 }
 label {
 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-font-size: 1.2em;
+font-size: 1.0em;
 padding: 0.5em;
 font-weight: bold;
 }
@@ -53,31 +61,93 @@ padding: 0.5em;
 <g:ui_form>
 <fieldset>
 <legend>Which service you want to monitor? </legend>
-<label><g:ui_checkbox name="check_incident" value="${jvar_check_incident}"/>Incident</label>
-<label><g:ui_checkbox name="check_problem" value="${jvar_check_problem}"/>Problem</label>
-<label><g:ui_checkbox name="check_catalog" value="${jvar_check_catalog}"/>Catalog</label>
+<table>
+	<tr>
+		<td>
+			<label style="font-size: 1.2em;"><g:ui_checkbox name="check_incident" value="${jvar_check_incident}"/>Incident</label>
+		</td>
+		<j:if test="${jvar_incident_when.equals('approved')}">
+			<td>
+				<label>
+					<input name="incident_when" value="approved" type="radio" checked="true"/>By Approved
+				</label>
+			</td>
+			<td>
+				<label>
+					<input name="incident_when" value="created" type="radio"/>By Created
+				</label>
+			</td>
+		</j:if>
+		<j:if test="${jvar_incident_when.equals('created')}">
+			<td>
+				<label><input name="incident_when" value="approved" type="radio"/>By Approved</label>
+			</td>
+			<td>
+				<label>
+					<input name="incident_when" value="created" type="radio" checked="true"/>By Created
+				</label>
+			</td>
+		</j:if>
+	</tr>
+	<tr>
+		<td>
+			<label style="font-size: 1.2em;"><g:ui_checkbox name="check_problem" value="${jvar_check_problem}"/>Problem</label>
+		</td>
+		<j:if test="${jvar_problem_when.equals('approved')}">
+			<td>
+				<label>
+					<input name="problem_when" value="approved" type="radio" checked="true"/>By Approved
+				</label>
+			</td>
+			<td>
+				<label>
+					<input name="problem_when" value="created" type="radio"/>By Created
+				</label>
+			</td>
+		</j:if>
+		<j:if test="${jvar_problem_when.equals('created')}">
+			<td>
+				<label><input name="problem_when" value="approved" type="radio"/>By Approved</label>
+			</td>
+			<td>
+				<label>
+					<input name="problem_when" value="created" type="radio" checked="true"/>By Created
+				</label>
+			</td>
+		</j:if>
+	</tr>
+	<tr>
+		<td>
+			<label style="font-size: 1.2em;"><g:ui_checkbox name="check_catalog" value="${jvar_check_catalog}"/>Catalog</label>
+		</td>
+		<j:if test="${jvar_catalog_when.equals('approved')}">
+			<td>
+				<label>
+					<input name="catalog_when" value="approved" type="radio" checked="true"/>By Approved
+				</label>
+			</td>
+			<td>
+				<label>
+					<input name="catalog_when" value="created" type="radio"/>By Created
+				</label>
+			</td>
+		</j:if>
+		<j:if test="${jvar_catalog_when.equals('created')}">
+			<td>
+				<label><input name="catalog_when" value="approved" type="radio"/>By Approved</label>
+			</td>
+			<td>
+				<label>
+					<input name="catalog_when" value="created" type="radio" checked="true"/>By Created
+				</label>
+			</td>
+		</j:if>
+	</tr>
+</table>
 </fieldset>
-
-<fieldset>
-<legend>When you want to monitor</legend>
-<j:choose> 
-<j:when test="${jvar_trigger_when.equals('approved')}"> 
-<label><input name="trigger_when" value="approved" type="radio" checked=""/>Approved</label>
-<label><input name="trigger_when" value="created" type="radio"/>Created</label>
-</j:when> 
-<j:when test="${jvar_trigger_when.equals('created')}"> 
-<label><input name="trigger_when" value="approved" type="radio" />Approved</label>
-<label><input name="trigger_when" value="created" type="radio" checked=""/>Created</label>
-</j:when> 
-<j:otherwise> 
-<label><input name="trigger_when" value="approved" type="radio" />Approved</label>
-<label><input name="trigger_when" value="created" type="radio" />Created</label>
-</j:otherwise> 
-</j:choose>
-</fieldset>
+<br></br>
 <fieldset>
 
-<!--
 <j:if test="${jvar_check_catalog}">
 <p>
 <div id="catalog_list" style="display:block"><legend>Catalogs</legend>
@@ -87,9 +157,21 @@ padding: 0.5em;
   gr.query(); 
   gr; 
 </g:evaluate>
+<span class="input-group-checkbox">
+	<table style="font-size: 1.5em; padding: 0.5em;">
+
 <j:while test="${jvar_gr.next()}">
-  <label><g:ui_checkbox value="${jvar_gr.getValue('sys_id')}"/>catalog:${jvar_gr.getValue('title')}</label>
-</j:while>
+  <tr><td>
+  <input id="${jvar_gr.getValue('sys_id')}" name="${jvar_gr.getValue('title')}" type="hidden"/>
+	</td>
+	<td>
+  <input value="${jvar_gr.getValue('sys_id')}" name="${jvar_gr.getValue('title')}" type="checkbox" onClick="setVersion(this);">${jvar_gr.getValue('title')}</input>
+	  </td></tr>
+</j:while>		
+
+	</table>
+
+</span>
 </div>
 </p>
 <p>
@@ -99,9 +181,9 @@ padding: 0.5em;
 <div id="category_list" style="display:none">Categories</div>	
 </p>
 </j:if>
--->
-<label>Click OK to save the configuration.</label>
-<br></br>
+</fieldset>
+<fieldset>
+<legend>Click OK to save the configuration.</legend>
 <g:dialog_buttons_ok_cancel ok="return true"/>
 <input type="hidden" name="application_sys_id" value="cb4182e69767611049b0b9dfe153af15"/>
 </fieldset>
@@ -119,18 +201,24 @@ gs.setProperty("x_1070098_my_eda_0.check_problem", check_problem);
 gs.setProperty("x_1070098_my_eda_0.check_catalog", check_catalog); 
 
 //set the value of the trigger_when sys property 
-gs.setProperty("x_1070098_my_eda_0.trigger_when", trigger_when);]]></processing_script>
+gs.setProperty("x_1070098_my_eda_0.catalog_when", catalog_when);
+
+//set the value of the trigger_when sys property 
+gs.setProperty("x_1070098_my_eda_0.incident_when", incident_when);
+
+//set the value of the trigger_when sys property 
+gs.setProperty("x_1070098_my_eda_0.problem_when", problem_when);]]></processing_script>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-06-23 15:39:25</sys_created_on>
         <sys_id>b032022a9767611049b0b9dfe153affe</sys_id>
-        <sys_mod_count>88</sys_mod_count>
+        <sys_mod_count>134</sys_mod_count>
         <sys_name>eda_configuration</sys_name>
         <sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package>
         <sys_policy/>
         <sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope>
         <sys_update_name>sys_ui_page_b032022a9767611049b0b9dfe153affe</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-06-26 13:43:11</sys_updated_on>
+        <sys_updated_on>2023-06-27 13:20:17</sys_updated_on>
     </sys_ui_page>
 </record_update>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="DELETE">
+        <choices/>
+        <description>when to trigger the monitor</description>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_1070098_my_eda_0.trigger_when</name>
+        <read_roles/>
+        <suffix>trigger_when</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-23 18:21:54</sys_created_on>
+        <sys_id>146762ea97e7611049b0b9dfe153af6e</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>x_1070098_my_eda_0.trigger_when</sys_name>
+        <sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope>
+        <sys_update_name>sys_properties_146762ea97e7611049b0b9dfe153af6e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-26 18:36:49</sys_updated_on>
+        <type>choicelist</type>
+        <value>approved</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="DELETE" query="documentkey=146762ea97e7611049b0b9dfe153af6e"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="My EDA">cb4182e69767611049b0b9dfe153af15</application>
+        <file_path/>
+        <instance_id>afff8d17dba453043353f22ebf9619e7</instance_id>
+        <instance_name>dev51642</instance_name>
+        <name>sys_properties_146762ea97e7611049b0b9dfe153af6e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties"><sys_properties action="INSERT_OR_UPDATE"><choices/><description>when to trigger the monitor</description><ignore_cache>true</ignore_cache><is_private>false</is_private><name>x_1070098_my_eda_0.trigger_when</name><read_roles/><suffix>trigger_when</suffix><sys_class_name>sys_properties</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-06-23 18:21:54</sys_created_on><sys_id>146762ea97e7611049b0b9dfe153af6e</sys_id><sys_mod_count>20</sys_mod_count><sys_name>x_1070098_my_eda_0.trigger_when</sys_name><sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package><sys_policy/><sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope><sys_update_name>sys_properties_146762ea97e7611049b0b9dfe153af6e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-06-26 18:36:49</sys_updated_on><type>choicelist</type><value>approved</value><write_roles/></sys_properties><sys_translated_text action="delete_multiple" query="documentkey=146762ea97e7611049b0b9dfe153af6e"/></record_update>]]></payload>
+        <payload_hash>-746331795</payload_hash>
+        <record_name>x_1070098_my_eda_0.trigger_when</record_name>
+        <reverted_from/>
+        <source>9dd33a66972b611049b0b9dfe153afab</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-26 18:36:49</sys_created_on>
+        <sys_id>02b74aab9727211049b0b9dfe153af99</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>188f8fe84ce0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-26 18:36:49</sys_updated_on>
+        <type>System Property</type>
+        <update_guid>0ab74aabd0272110c753248c8ba20998</update_guid>
+        <update_guid_history>0ab74aabd0272110c753248c8ba20998:-746331795,ed4c0d270063211075dba5fd3fc87e66:78124724,1f75cfa61d6b6110df3b5c3b0bd99af6:-746331795,a8487eaae92b61105a59dff3cccee8eb:78124724,0596f26a452b61108f7e7f3732fbe385:-746331795,48b23e66f82b6110d8fff14662d1e5f9:78124724,a1623a66c22b611060d325fae1ce1801:-746331795,0ed176e2cf2b61107d3ed71dc571e88e:78124724,2fc1be26192b61100a632710252612aa:-746331795,a1e032261a2b61100ff97f01a3b6d953:78124724,83c03226b82b6110dce70dbf7efa5b6a:874032502,96c03ee2f22b6110988c3cfb2f372943:-1842994453,f2907ee21a2b6110053cad08f7f78471:-289167887,148036e28e2b611059a78cda7395e485:88404911,ff4036e2c32b61100648b936ff6f665f:-746331795,b30036e2cd2b611017737ff0e0dd8b0d:1961712430,aa0032e25b2b6110745d14988080cfec:1966596307,290032e2322b6110d6de7335b21b475b:1961712430,e5df6aa2f92b6110970b249dc786e358:1966596307,3d1fee22862b6110fa1d3cdfeee3fc78:1961712430,c687aaaafbe7611064d8ca8146657d21:-29798386</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-06-26 23:58:39</sys_created_on>
+        <sys_db_object display_value="" name="sys_properties">sys_properties</sys_db_object>
+        <sys_id>385d10967b4c4f00bfee8571ab521000</sys_id>
+        <sys_metadata>146762ea97e7611049b0b9dfe153af6e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1070098_my_eda_0.trigger_when</sys_name>
+        <sys_package display_value="My EDA" source="x_1070098_my_eda_0">cb4182e69767611049b0b9dfe153af15</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="My EDA">cb4182e69767611049b0b9dfe153af15</sys_scope>
+        <sys_scope_delete display_value="">29cef78a97ba4219bda3713dc0a82ab9</sys_scope_delete>
+        <sys_update_name>sys_properties_146762ea97e7611049b0b9dfe153af6e</sys_update_name>
+        <sys_update_version display_value="sys_properties_146762ea97e7611049b0b9dfe153af6e">02b74aab9727211049b0b9dfe153af99</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-06-26 23:58:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
